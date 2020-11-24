@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: front-tier
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: front-tier
+  template:
+    metadata:
+      labels:
+        component: front-tier
+    spec:
+      containers:
+        - name: front-tier
+          image: brainupgrade/front-tier:2020.11.015-RELEASE
+          ports:
+            - containerPort: 80

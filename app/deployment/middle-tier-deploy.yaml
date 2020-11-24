@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: middle-tier
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: middle-tier
+  template:
+    metadata:
+      labels:
+        component: middle-tier
+    spec:
+        containers:
+          - name: middle-tier
+            image: brainupgrade/middle-tier:2020.11.003-RELEASE
+            ports:
+              - containerPort: 8080
+            env: 
+              - name: spring.datasource.url
+                value: jdbc:mariadb://mariadb.default.svc.cluster.local:3306/app?useUnicode=yes&characterEncoding=UTF-8
+              - name: spring.datasource.username
+                value: app
+              - name: spring.datasource.password
+                value: lab
+              - name: spring.jpa.hibernate.ddl-auto
+                value: update  
+            

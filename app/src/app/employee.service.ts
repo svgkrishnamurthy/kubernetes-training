@@ -10,8 +10,7 @@ export class EmployeeService {
   
   // private baseUrl = "http://localhost:8080/api/v1/employees";
   // private baseUrl = "http://middle-tier.default.svc.cluster.local/api/v1/employees";
-  // private baseUrl = "https://app.brainupgrade.in/api/api/v1/employees";
-  private baseUrl='/api/v1/employees';
+  private baseUrl = "https://app.brainupgrade.in/api/api/v1/employees";
   // private baseUrl = environment.apiURL;
   constructor(private http: HttpClient) {}
   getEmployee(id: number): Observable<any> {
