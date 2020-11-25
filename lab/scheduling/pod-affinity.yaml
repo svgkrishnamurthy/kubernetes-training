@@ -32,7 +32,7 @@ spec:
                     operator: In
                     values:
                     - messaging
-                topologyKey: topology.kubernetes.io/hostname
+                topologyKey: kubernetes.io/hostname
         containers:
           - name: pod-affinity-middle-tier
             image: nginx
